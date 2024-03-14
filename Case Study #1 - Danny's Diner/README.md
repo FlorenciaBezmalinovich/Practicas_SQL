@@ -1,8 +1,8 @@
 # 🍜 Caso de estudio #1: Danny's Diner
 
 ## Índice
-- [Problema del negocio](#Problema del negocio)
-- [DER - Diagrama Entidad-Relación](#Diagrama Entidad-Relación)
+- [Problema del negocio](#Problema-del-negocio)
+- [DER - Diagrama Entidad-Relación](#Diagrama-Entidad-Relación)
 - [Preguntas y Soluciones]
 > Considerar que toda la información sobre el caso de estudio fue obtenido desde el siguiente enlace: [SQLChallange](https://8weeksqlchallenge.com/case-study-1/)
   
