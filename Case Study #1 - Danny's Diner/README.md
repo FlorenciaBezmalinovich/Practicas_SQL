@@ -12,4 +12,5 @@ Danny es un restaurante que desea conocer más sobre el comportamiento de sus cl
 ## DER - Diagrama Entidad-Relación
 ![DER](https://miro.medium.com/v2/resize:fit:750/format:webp/1*fEmZXjnIof5BHL_sLGDVUg.png)
 ***
-## Preguntas y Soluciones
+## Preguntas y Respuestas
+> Considerar que todas las soluciones fueron hechas en Microsoft SQL Server Management Studio.
