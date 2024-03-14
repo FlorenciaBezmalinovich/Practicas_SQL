@@ -23,3 +23,16 @@ SUM(price) as total_gastado
 FROM Sales AS S
 INNER JOIN Menu AS M on S.product_id = M.product_id
 GROUP BY customer_id;
+```
+Pasos:
+Usé JOIN para combinar las tablas Sales y Menu por product_id.
+Usé SUM para calcular el total gastado por cada cliente.
+Agrupé los resultados por customer_id.
+
+Solución:
+| cliente       | total_gastado|
+|:-------------:|:------------:|
+| A             | 76           |
+| B             | 74           |
+| C             | 36           | 
+***
