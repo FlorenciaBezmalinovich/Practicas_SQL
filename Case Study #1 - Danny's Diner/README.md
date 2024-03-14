@@ -15,7 +15,7 @@ Danny es un restaurante que desea conocer más sobre el comportamiento de sus cl
 ## Preguntas y Respuestas
 > Considerar que todas las soluciones fueron realizadas en Microsoft SQL Server Management Studio.
 
-###1.¿Cuál es la cantidad total que gastó cada cliente en el restaurante?
+### 1.¿Cuál es la cantidad total que gastó cada cliente en el restaurante?
  ```
 SELECT
 customer_id as cliente,
