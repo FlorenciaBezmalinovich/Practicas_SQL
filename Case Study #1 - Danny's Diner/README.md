@@ -10,8 +10,6 @@
 Danny es un restaurante que desea conocer más sobre el comportamiento de sus clientes utilizando datos para responder algunas preguntas sencillas. Es de su interés saber sobre sus patrones de visita, cuánto dinero han gastado y también qué elementos del menú son sus favoritos, entre otras cosas.
 ***
 ### DER - Diagrama Entidad-Relación
-![DER](https://github.com/FlorenciaBezmalinovich/Practicas_SQL/assets/87548844/f818c7a4-10db-4208-8680-11e1da7feeb6)
-![image](https://github.com/FlorenciaBezmalinovich/Practicas_SQL/assets/87548844/b428d8d4-28c6-4118-af89-58de3f159dfb)
-
+![DER](https://miro.medium.com/v2/resize:fit:750/format:webp/1*fEmZXjnIof5BHL_sLGDVUg.png)
 ***
 ### Preguntas y Soluciones
