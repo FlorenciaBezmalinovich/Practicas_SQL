@@ -29,6 +29,7 @@ Pasos:
 2. Usé SUM para calcular el total gastado por cada cliente.
 3. Agrupé los resultados por customer_id.
 Solución:
+
 | cliente       | total_gastado|
 |:-------------:|:------------:|
 | A             | 76           |
