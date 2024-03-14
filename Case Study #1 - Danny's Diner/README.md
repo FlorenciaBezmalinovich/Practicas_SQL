@@ -1,6 +1,7 @@
 # 🍜 Caso de estudio #1: Danny's Diner
 
 ![Logo_Danny](https://github.com/FlorenciaBezmalinovich/Practicas_SQL/assets/87548844/82628e44-43fc-4517-9558-92a2d1c4e4b9){width=50 height=50}
+<img src="[https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png](https://github.com/FlorenciaBezmalinovich/Practicas_SQL/assets/87548844/82628e44-43fc-4517-9558-92a2d1c4e4b9)" alt="Logo de GitHub" width="50" height="50">
 
 ---
 ## 📋Índice
