@@ -11,6 +11,7 @@ Danny es un restaurante que desea conocer más sobre el comportamiento de sus cl
 ***
 ### DER - Diagrama Entidad-Relación
 ![DER](https://github.com/FlorenciaBezmalinovich/Practicas_SQL/assets/87548844/f818c7a4-10db-4208-8680-11e1da7feeb6)
+![image](https://github.com/FlorenciaBezmalinovich/Practicas_SQL/assets/87548844/b428d8d4-28c6-4118-af89-58de3f159dfb)
 
 ***
 ### Preguntas y Soluciones
