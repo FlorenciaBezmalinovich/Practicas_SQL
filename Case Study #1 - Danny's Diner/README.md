@@ -1,5 +1,5 @@
 # 🍜 Caso de estudio #1: Danny's Diner
-![Logo_Danny](https://github.com/FlorenciaBezmalinovich/Practicas_SQL/assets/87548844/82628e44-43fc-4517-9558-92a2d1c4e4b9)
+![Logo_Danny](https://html.scribdassets.com/14q7tadsn49nbifk/images/1-53579a9c13.png)
 ## 📋Índice
 - [Problema del negocio](#Problema-del-negocio)
 - [DER - Diagrama Entidad-Relación](#Diagrama-Entidad-Relación)
