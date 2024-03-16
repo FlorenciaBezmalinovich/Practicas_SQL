@@ -58,3 +58,36 @@ Solución:
 | B             | 6           |
 | C             | 2           | 
 ***
+### 3. ¿Cuál fue el primer artículo del menú comprado por cada cliente?
+ ```SQL
+WITH ordered_sales AS (
+SELECT 
+customer_id,
+order_date,
+product_name,
+DENSE_RANK() OVER(PARTITION BY customer_id ORDER BY order_date ASC) as rkn
+FROM Sales AS S
+INNER JOIN Menu AS M on S.product_id = M.product_id
+)
+
+SELECT 
+  customer_id, 
+  product_name
+FROM ordered_sales
+WHERE rkn = 1
+GROUP BY customer_id, product_name;
+```
+Esta consulta cuenta todas las filas en la tabla de sales para cada cliente, lo que nos dará el número de días que cada cliente visitó el restaurante. Es importante aplicar la palabra clave DISTINCT al calcular el recuento de visitas para evitar recuentos duplicados de días. Por ejemplo, si el cliente C visitó el restaurante dos veces el '2021–01–01', contar sin DISTINCT daría como resultado 2 días en lugar del recuento exacto de 1 día.
+
+Pasos:
+1. Usé COUNT (DISTINCT order_date) para determinar un único número de visitas de cada cliente.
+2. Agrupé los resultados por customer_id porque se pregunta por cada uno de ellos.
+   
+
+Solución:
+| cliente       | días|
+|:-------------:|:------------:|
+| A             | 4           |
+| B             | 6           |
+| C             | 2           | 
+***
