@@ -27,7 +27,7 @@ GROUP BY customer_id;
 Pasos:
 1. Usé JOIN para combinar las tablas Sales y Menu por product_id.
 2. Usé SUM para calcular el total gastado por cada cliente.
-3. Agrupé los resultados por customer_id.
+3. Agrupé los resultados por customer_id porque se pregunta por cada uno de ellos.
 Solución:
 
 | cliente       | total_gastado|
@@ -44,11 +44,12 @@ COUNT (DISTINCT order_date) as dias
 FROM Sales
 GROUP BY customer_id
 ```
-Esta consulta cuenta todas las filas en la tabla de sales para cada cliente, lo que nos dará el número de días que cada cliente visitó el restaurante.
+Esta consulta cuenta todas las filas en la tabla de sales para cada cliente, lo que nos dará el número de días que cada cliente visitó el restaurante. Es importante aplicar la palabra clave DISTINCT al calcular el recuento de visitas para evitar recuentos duplicados de días. Por ejemplo, si el cliente C visitó el restaurante dos veces el '2021–01–01', contar sin DISTINCT daría como resultado 2 días en lugar del recuento exacto de 1 día.
 
 Pasos:
 1. Usé COUNT (DISTINCT order_date) para determinar un único número de visitas de cada cliente.
-2. Es importante aplicar la palabra clave DISTINCT al calcular el recuento de visitas para evitar recuentos duplicados de días. Por ejemplo, si el cliente C visitó el restaurante dos veces el '2021–01–01', contar sin DISTINCT daría como resultado 2 días en lugar del recuento exacto de 1 día.
+2. Agrupé los resultados por customer_id porque se pregunta por cada uno de ellos.
+   
 
 Solución:
 | cliente       | días|
