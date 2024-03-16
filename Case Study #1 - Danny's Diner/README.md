@@ -3,7 +3,7 @@
 ## 📋Índice
 - [Problema del negocio](#Problema-del-negocio)
 - [DER - Diagrama Entidad-Relación](#Diagrama-Entidad-Relación)
-- [Preguntas y Respuestas](#Preguntas-y-Soluciones)
+- [Preguntas y Respuestas](#Preguntas-y-Respuestas)
 > Considerar que toda la información sobre el caso de estudio fue obtenido desde el siguiente enlace: [SQL_Challenge](https://8weeksqlchallenge.com/case-study-1/)
 ***
 ## Problema del negocio
