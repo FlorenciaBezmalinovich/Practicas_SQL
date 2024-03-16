@@ -2,7 +2,7 @@
 ![Logo_Danny](https://html.scribdassets.com/14q7tadsn49nbifk/images/1-53579a9c13.png)
 ## 📋Índice
 - [Problema del negocio](#Problema-del-negocio)
-- [DER - Diagrama Entidad-Relación](#DER---Diagrama-Entidad---Relación)
+- [DER - Diagrama Entidad-Relación](#DER---Diagrama-EntidadRelación)
 - [Preguntas y Respuestas](#Preguntas-y-Respuestas)
 > Considerar que toda la información sobre el caso de estudio fue obtenido desde el siguiente enlace: [SQL_Challenge](https://8weeksqlchallenge.com/case-study-1/)
 ***
