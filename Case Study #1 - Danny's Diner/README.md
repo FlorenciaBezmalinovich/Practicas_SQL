@@ -99,3 +99,55 @@ Solución:
 | C             | ramen           | 
 
 ***
+### 4. ¿Cuál es el artículo más comprado en el menú y cuántas veces lo compraron todos los clientes?
+
+ ```SQL
+SELECT TOP 1
+product_name as producto,
+COUNT (order_date) as cantidad_ordenes
+FROM Sales AS S
+INNER JOIN Menu AS M on S.product_id = M.product_id
+GROUP BY product_name
+ORDER BY cantidad_ordenes DESC;
+```
+
+Pasos:
+1. Usé JOIN para combinar las tablas Sales y Menu por product_id.
+2. Usé COUNT para crea una agregación en la columna order_date.
+3. Ordenpe de manera descendiente el resultado utilizando el campo cantidad_ordenes.
+
+
+Solución:
+| producto       | cantidad_ordenes|
+|:-------------:|:------------:|
+| ramen             | 8        |
+
+***
+### 4.¿Qué artículo fue el más popular para cada cliente?
+ ```SQL
+WITH articulo_popular AS(
+SELECT 
+customer_id as cliente,
+product_name as articulo,
+COUNT (order_date) as cantidad_ordenes,
+RANK() OVER(PARTITION BY customer_id ORDER BY COUNT (order_date) DESC) as rkn
+FROM Sales AS S
+INNER JOIN Menu AS M on S.product_id = M.product_id
+GROUP BY product_name,
+customer_id
+)
+SELECT
+*
+FROM articulo_popular
+WHERE rkn = 1
+ ```
+
+Solución:
+| cliente       |       artículos |cantidad_ordenes|
+|:-------------:|:---------------:|:-------------:|
+| A             |ramen           |3             |
+| B             |curry           |2             |
+| B             |ramen           |2             |
+| B             |sushi           |2             |
+| C             |ramen           |3             |
+***
