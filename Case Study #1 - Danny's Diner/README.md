@@ -61,8 +61,9 @@ Solución:
 | C             | 2           | 
 ***
 ### 3. ¿Cuál fue el primer artículo del menú comprado por cada cliente?
+
  ```SQL
-WITH ordered_sales AS (
+WITH ordered_sales_cte AS (
 SELECT 
 customer_id,
 order_date,
@@ -73,17 +74,20 @@ INNER JOIN Menu AS M on S.product_id = M.product_id
 )
 
 SELECT 
-  customer_id, 
-  product_name
-FROM ordered_sales
+  customer_id AS cliente, 
+  product_name AS artículo
+FROM ordered_sales_cte
 WHERE rkn = 1
 GROUP BY customer_id, product_name;
 ```
-Esta consulta cuenta todas las filas en la tabla de sales para cada cliente, lo que nos dará el número de días que cada cliente visitó el restaurante. Es importante aplicar la palabra clave DISTINCT al calcular el recuento de visitas para evitar recuentos duplicados de días. Por ejemplo, si el cliente C visitó el restaurante dos veces el '2021–01–01', contar sin DISTINCT daría como resultado 2 días en lugar del recuento exacto de 1 día.
+Cree una expresión común de tabla (CTE) denominada order_sales_cte. Allí, cree una nueva columna y calcule el número de filas usando la función DENSE_RANK(). La cláusula PARTITION BY divide los datos por customer_id y la cláusula ORDER BY ordena las filas dentro de cada partición por order_date.
+En la consulta externa, seleccione las columnas apropiadas y aplique un filtro en la cláusula WHERE para recuperar solo las filas donde la columna de rkn es igual a 1, que representa la primera fila dentro de cada partición customer_id.
 
 Pasos:
-1. Usé COUNT (DISTINCT order_date) para determinar un único número de visitas de cada cliente.
-2. Agrupé los resultados por customer_id porque se pregunta por cada uno de ellos.
+1. Usé WITH para crear una tabla expresión común de tabla llamada ordered_sales_cte.
+2. En la tabla creada en el punto 1 use ña función DENSE_RANK() para dividir y ordenar los datos.
+3. En la consulta principal, seleccioné las columnas que deseaba mostrar en la respuesta y lasfiltré con WHERE indicando que deseaba mostrar solos los rkn = 1.
+4. Por último, utilice la cláusula GROUP BY para agrupar el resultado por customer_id y product_name.
    
 
 Solución:
