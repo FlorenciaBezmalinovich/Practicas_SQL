@@ -91,9 +91,11 @@ Pasos:
    
 
 Solución:
-| cliente       | días|
+| cliente       | artículo|
 |:-------------:|:------------:|
-| A             | 4           |
-| B             | 6           |
-| C             | 2           | 
+| A             | curry         |
+| A             | sushi           | 
+| B             | curry           |
+| C             | ramen           | 
+
 ***
