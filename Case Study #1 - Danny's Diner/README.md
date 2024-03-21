@@ -152,7 +152,7 @@ Solución:
 | C             |ramen           |3             |
 ***
 
---6 ¿Qué artículo compró primero el cliente después de convertirse en miembro?
+### 6 ¿Qué artículo compró primero el cliente después de convertirse en miembro?
  ```SQL
 WITH conversion_a_miembro AS(
 	SELECT
@@ -180,3 +180,30 @@ Solución:
 | B             |sushi           |  
 
 ***
+### 7. ¿Qué artículo se compró justo antes de que el cliente se convirtiera en miembro?
+ ```SQL
+WITH conversion_a_miembro AS(
+	SELECT
+	S.customer_id as cliente,
+	order_date as fecha,
+	join_date,
+	product_name AS articulo,
+	RANK() OVER(PARTITION BY S.customer_id ORDER BY order_date DESC) as rnk,
+	ROW_NUMBER() OVER(PARTITION BY S.customer_id ORDER BY order_date DESC) as rn
+	FROM Sales AS S
+	INNER JOIN Members AS MEM on S.customer_id = MEM.customer_id
+	INNER JOIN Menu AS M on S.product_id = M.product_id
+	WHERE order_date < join_date
+	)
+SELECT 
+cliente,
+articulo
+FROM conversion_a_miembro
+WHERE rnk = 1
+ ```
+Solución:
+| cliente       |       artículo |
+|:-------------:|:---------------:|
+| A             |curry           |
+| A             |sushi           |  
+| B             |sushi           |  
