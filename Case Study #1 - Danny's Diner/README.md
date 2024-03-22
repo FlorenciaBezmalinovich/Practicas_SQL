@@ -123,7 +123,7 @@ Solución:
 | ramen             | 8        |
 
 ***
-### 4.¿Qué artículo fue el más popular para cada cliente?
+### 5. ¿Qué artículo fue el más popular para cada cliente?
  ```SQL
 WITH articulo_popular AS(
 SELECT 
@@ -141,6 +141,8 @@ SELECT
 FROM articulo_popular
 WHERE rkn = 1
  ```
+Pasos:
+
 
 Solución:
 | cliente       |       artículos |cantidad_ordenes|
@@ -152,7 +154,7 @@ Solución:
 | C             |ramen           |3             |
 ***
 
-### 6 ¿Qué artículo compró primero el cliente después de convertirse en miembro?
+### 6. ¿Qué artículo compró primero el cliente después de convertirse en miembro?
  ```SQL
 WITH conversion_a_miembro AS(
 	SELECT
@@ -207,3 +209,40 @@ Solución:
 | A             |curry           |
 | A             |sushi           |  
 | B             |sushi           |  
+***
+### 8. ¿Cuál es el total de artículos y la cantidad gastada por cada miembro antes de convertirse en miembro?
+ ```SQL
+ ```
+Pasos:
+
+
+Solución:
+| cliente       |       artículos |cantidad_ordenes|
+|:-------------:|:---------------:|:-------------:|
+| A             |ramen           |3             |
+| B             |curry           |2             |
+***
+### 9. Si cada $ 1 gastado equivale a 10 puntos y el sushi tiene un multiplicador de puntos 2x, ¿cuántos puntos tendría cada cliente? Nota: Solo los clientes que son miembros reciben puntos al comprar artículos.
+ ```SQL
+ ```
+Pasos:
+
+
+Solución:
+| cliente       |       artículos |cantidad_ordenes|
+|:-------------:|:---------------:|:-------------:|
+| A             |ramen           |3             |
+| B             |curry           |2             |
+***
+### 10. En la primera semana después de que un cliente se une al programa (incluida la fecha de ingreso), gana el doble de puntos en todos los artículos, no solo en sushi. ¿Cuántos puntos tienen los clientes A y B a fines de enero?
+ ```SQL
+ ```
+Pasos:
+
+
+Solución:
+| cliente       |       artículos |cantidad_ordenes|
+|:-------------:|:---------------:|:-------------:|
+| A             |ramen           |3             |
+| B             |curry           |2             |
+***
