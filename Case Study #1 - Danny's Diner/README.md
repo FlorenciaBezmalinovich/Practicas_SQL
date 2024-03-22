@@ -180,7 +180,9 @@ FROM conversion_a_miembro
 WHERE rnk = 1
  ```
 Pasos:
-1. Creación de un CTE 
+1. Creación de un CTE llamado 'conversion_a_miembro'
+2. 
+
 Solución:
 | cliente       |       artículo |
 |:-------------:|:---------------:|
