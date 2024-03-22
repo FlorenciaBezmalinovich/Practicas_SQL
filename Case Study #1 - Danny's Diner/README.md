@@ -142,6 +142,10 @@ FROM articulo_popular
 WHERE rkn = 1
  ```
 Pasos:
+1. Creación un CTE llamado articulo_popular y dentro del CTE, unión de las tablas Menu y Sales usando la columna product_id.
+2. Agrupación los resultados por sales.customer_id y menu.product_name y cálculo del recuento de apariciones de order_date para cada grupo.
+3. Uso de RANK() para calcular la clasificación de cada partición sales.customer_id en función del recuento de pedidos en orden descendente.
+4. En la consulta externa, selección de las columnas apropiadas y aplicación de un filtro en la cláusula WHERE para recuperar solo las filas donde la columna de clasificación es igual a 1, lo que representa las filas con el recuento de pedidos más alto para cada cliente.
 
 
 Solución:
@@ -176,7 +180,7 @@ FROM conversion_a_miembro
 WHERE rnk = 1
  ```
 Pasos:
-
+1. Creación de un CTE 
 Solución:
 | cliente       |       artículo |
 |:-------------:|:---------------:|
