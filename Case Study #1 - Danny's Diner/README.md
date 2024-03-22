@@ -180,8 +180,10 @@ FROM conversion_a_miembro
 WHERE rnk = 1
  ```
 Pasos:
-1. Creación de un CTE llamado `conversion_a_miembro` 
-2. 
+1. Creación de un CTE llamado `conversion_a_miembro` donde se unen las tablas Sales y Miembros por la columna customer_id y las tablas Sales y Menu por product_id.
+2. Creación de la columna rn que cuenta la cantidad de filas con la función ROW_NUMBER() particionando en función del customer_id.
+3. Utilización dle filtro WHERE para recuperar solo las columnas donde la fecha del pedido es mayor o igual a la fecha de alta como miembro.
+4. En la consulta externa, selección de cliente y artículo de del CTE filtrando por la columna rnk que le da un numero de orden a los pedidos en base a la fecha de la orden.
 
 Solución:
 | cliente       |       artículo |
@@ -192,7 +194,7 @@ Solución:
 ***
 ### 7. ¿Qué artículo se compró justo antes de que el cliente se convirtiera en miembro?
  ```SQL
-WITH conversion_a_miembro AS(
+WITH compra_anterior_conversion_miembro AS(
 	SELECT
 	S.customer_id as cliente,
 	order_date as fecha,
@@ -208,10 +210,12 @@ WITH conversion_a_miembro AS(
 SELECT 
 cliente,
 articulo
-FROM conversion_a_miembro
+FROM compra_anterior_conversion_miembro
 WHERE rnk = 1
  ```
 Pasos:
+1.  Creación de un CTE llamado `compra_anterior_conversion_miembro` donde se unen las tablas Sales y Miembros por la columna customer_id y las tablas Sales y Menu por la columna product_id.
+2. 
 
 Solución:
 | cliente       |       artículo |
