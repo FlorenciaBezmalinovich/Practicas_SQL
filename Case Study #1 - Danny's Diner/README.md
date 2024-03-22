@@ -175,6 +175,8 @@ articulo
 FROM conversion_a_miembro
 WHERE rnk = 1
  ```
+Pasos:
+
 Solución:
 | cliente       |       artículo |
 |:-------------:|:---------------:|
@@ -203,6 +205,8 @@ articulo
 FROM conversion_a_miembro
 WHERE rnk = 1
  ```
+Pasos:
+
 Solución:
 | cliente       |       artículo |
 |:-------------:|:---------------:|
