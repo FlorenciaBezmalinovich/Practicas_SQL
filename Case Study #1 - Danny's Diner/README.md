@@ -260,3 +260,96 @@ Solución:
 | A             |ramen           |3             |
 | B             |curry           |2             |
 ***
+
+
+--9. Si cada $ 1 gastado equivale a 10 puntos y el sushi tiene un multiplicador de puntos 2x, ¿cuántos puntos tendría cada cliente? 
+--Nota: Solo los clientes que son miembros reciben puntos al comprar artículos
+
+WITH puntos_obtenidos as(
+SELECT
+s.customer_id,
+SUM(CASE WHEN m.product_name = 'sushi' THEN m.price*20 ELSE 0 END) as  puntos_obtenidos_sushi,
+SUM(CASE WHEN m.product_name <> 'sushi' THEN m.price*10 ELSE 0 END) as  puntos_obtenidos_otros
+FROM sales as s
+JOIN menu as m 
+ON (s.product_id = m.product_id) JOIN members as mem 
+ON (s.customer_id = mem.customer_id)
+WHERE s.order_date >= mem.join_date
+GROUP BY s.customer_id
+)
+SELECT customer_id,
+(puntos_obtenidos_sushi + puntos_obtenidos_otros) as total_puntos
+FROM puntos_obtenidos
+ORDER BY customer_id
+
+--10. En la primera semana después de que un cliente se une al programa (incluida la fecha de ingreso), 
+--gana el doble de puntos en todos los artículos, no solo en sushi. ¿Cuántos puntos tienen los clientes A y B a fines de enero?
+SELECT 
+  S.customer_id, 
+  SUM(
+    CASE 
+      WHEN order_date BETWEEN MEM.join_date AND DATEADD(day, 6, MEM.join_date) THEN price * 10 * 2 
+      WHEN product_name = 'sushi' THEN price * 10 * 2 
+      ELSE price * 10 
+    END
+  ) as points 
+FROM 
+  MENU as M 
+  INNER JOIN SALES as S ON S.product_id = M.product_id
+  INNER JOIN MEMBERS AS MEM ON MEM.customer_id = S.customer_id 
+WHERE 
+  MONTH(S.order_date) = 1 AND YEAR(S.order_date) = 2021
+GROUP BY 
+  S.customer_id;
+
+  --1 BONUS QUESTION Uniendo todas las cosas
+  SELECT
+  S.customer_id,
+  order_date,
+  PRODUCT_NAME,
+  PRICE,
+  CASE
+  WHEN join_date IS NULL THEN 'N'
+  WHEN order_date < join_date THEN 'N'
+  ELSE 'Y'
+  END AS MEMBER
+  FROM Sales AS S
+  INNER JOIN menu as M ON S.product_id=M.product_id
+  LEFT JOIN Members as MEM  ON MEM.customer_id = S.customer_id
+  order by s.customer_id,
+  order_date,
+  price DESC
+
+  --2 BONUS QUESTION Clasificando todas las cosas
+WITH clasificacion AS (
+  SELECT
+    S.customer_id,
+    order_date,
+    PRODUCT_NAME,
+    PRICE,
+    CASE
+      WHEN join_date IS NULL THEN 'N'
+      WHEN order_date < join_date THEN 'N'
+      ELSE 'Y'
+    END AS MEMBER
+  FROM
+    Sales AS S
+  INNER JOIN
+    menu AS M ON S.product_id = M.product_id
+  LEFT JOIN
+    Members AS MEM ON MEM.customer_id = S.customer_id
+)
+SELECT
+  *,
+  CASE
+    WHEN member = 'N' THEN NULL
+    ELSE RANK() OVER(PARTITION BY customer_id, member ORDER BY order_date)
+  END AS ranking
+FROM
+  clasificacion
+ORDER BY
+  customer_id,
+  order_date,
+  PRICE DESC;
+
+
