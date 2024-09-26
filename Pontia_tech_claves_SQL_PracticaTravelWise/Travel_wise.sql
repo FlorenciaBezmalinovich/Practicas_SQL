@@ -175,8 +175,8 @@ SELECT * FROM viaje_clientes;
 
 SELECT COUNT(*) FROM viaje_clientes;
 
-# Check your answer
-q_1.103
+# Respuesta_q2
+/* q2.103 */
 
 # 3. La agencia quiere ver todos los destinos únicos a los que sus clientes han viajado
 
@@ -212,10 +212,17 @@ ORDER BY continente, destino;
 
 SELECT SUM(coste) AS gasto_total FROM viaje_clientes;
 
+# Respuesta_q7
+/* q7.176250 */
+
 # y ahora unicamente el gasto de los clientes que han hecho viajes dentro de España
 
 SELECT SUM(coste) AS gasto_total_nacional FROM viaje_clientes
 WHERE es_nacional='si';
+
+
+# Respuesta_q7
+/* q7.50550 */
 
 # 8. La agencia quiere ver qué clientes han gastado más de 3000 euros en al menos uno de sus viajes
 
@@ -230,16 +237,25 @@ WHERE fecha_inicio LIKE '2024-09-%';
 SELECT COUNT(*) FROM viaje_clientes
 WHERE fecha_inicio LIKE '2024-09-%';
 
+# Respuesta_q9
+/* q9.18 */
+
 # 10. Obtener el número total de viajes realizados por tipo de destino
 
 SELECT COUNT(*) AS num_total_viajes , tipo_destino FROM viaje_clientes
 GROUP BY tipo_destino;
+
+# Respuesta_q10
+/* q10.Ciudad_74, Playa_23, Montaña_6 */
 
 # 11. Calcula el coste promedio de los viajes, agrupados por el tipo_viaje
 
 SELECT ROUND(AVG(coste),2) AS coste_promedio_viajes, tipo_viaje FROM viaje_clientes
 GROUP BY tipo_viaje
 ORDER BY coste_promedio_viajes DESC;
+
+# Respuesta_q11
+/* q11.De mayot a menor. Negocio, Individual, Familiar, Amigos */
 
 
 
