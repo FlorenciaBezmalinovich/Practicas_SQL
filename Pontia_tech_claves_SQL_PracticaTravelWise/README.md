@@ -7,30 +7,45 @@ A continuación, se detalla la estructura del script y las operaciones que reali
 
 ### 📂 Estructura del Script:
 
-1. **💬 Comentarios**: El código incluye como realizar comentarios ya sea de una sola linea como de multiples lineas para describir cada bloque de código.
+ **💬 Comentarios**: El código incluye como realizar comentarios ya sea de una sola linea como de multiples lineas para describir cada bloque de código.
 
-2. **🏗️ Creación de la Base de Datos**: 
+ **🏗️ Creación de la Base de Datos**: 
    - Si la base de datos `agencia` ya existe, se elimina utilizando `DROP DATABASE IF EXISTS`.
    - Posteriormente, se crea la base de datos con `CREATE DATABASE` y se selecciona con `USE agencia`.
 
-3. **📊 Creación de la Tabla**: 
+ **📊 Creación de la Tabla**: 
    - Se crea una tabla llamada `viaje_clientes` que almacena información de los clientes y sus viajes. Los campos incluyen detalles como el nombre del cliente, correo electrónico, tipo de viaje, destino, fechas de inicio y fin, costo, etc.
 
-4. **📥 Inserción de Datos**: 
+ **📥 Inserción de Datos**: 
    - Se insertan algunos registros de ejemplo en la tabla `viaje_clientes` con datos de clientes y viajes.
 
 > Considerar que todas las soluciones fueron realizadas en MySQL Workbench.
 
-5. **🔍 Consultas SQL**: El archivo incluye consultas para obtener información de la base de datos:
+ **🔍 Consultas SQL**: El archivo incluye consultas para obtener información de la base de datos:
 
    1- Visualizar toda la información de la tabla.
 
 ```SQL
 SELECT * FROM viaje_clientes;
-
 ```
 
+Pasos:
+
+1. Usé SELECT para especificar las columnas a recuperar de la tabla. En este caso, con el asterisco (*) indique que deseabs seleccionar todas las columnas disponibles.
+
+2. Indiqué desde que tabla deseaba obtener la informacion de las columnas con FROM viaje_clientes.
+
    2- Contar el número total de registros.
+   
+```SQL
+SELECT COUNT(*) FROM viaje_clientes;
+```
+Pasos:
+1. Usé SELECT COUNT(*) para contar el número total de filas en la tabla.
+
+2. Indiqué desde que tabla deseaba obtener la informacion de las columnas con FROM viaje_clientes.
+
+Solución: 
 
    3- Obtener los destinos únicos de los viajes.
 
