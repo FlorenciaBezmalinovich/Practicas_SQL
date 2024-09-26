@@ -175,6 +175,9 @@ SELECT * FROM viaje_clientes;
 
 SELECT COUNT(*) FROM viaje_clientes;
 
+# Check your answer
+q_1.103
+
 # 3. La agencia quiere ver todos los destinos únicos a los que sus clientes han viajado
 
 SELECT distinct destino FROM viaje_clientes;
