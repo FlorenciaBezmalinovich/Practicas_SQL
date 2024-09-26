@@ -23,6 +23,11 @@ A continuación, se detalla la estructura del script y las operaciones que reali
 
    1- Visualizar toda la información de la tabla.
 
+```SQL
+SELECT * FROM viaje_clientes;
+
+```
+
    2- Contar el número total de registros.
 
    3- Obtener los destinos únicos de los viajes.
