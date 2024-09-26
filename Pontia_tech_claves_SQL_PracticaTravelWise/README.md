@@ -1,6 +1,6 @@
 ## 🌍 Travel Wise - SQL Queries
 
-Al haber participado de una masterclass sobre *Claves del SQL* realice una serie de ejercicios practicos que se encuentran en 'TravelWise.sql'.
+Al haber participado de una masterclass sobre *Claves del SQL* realice una serie de ejercicios practicos que se encuentran en 'Travel_wise.sql'.
 Este archivo SQL contiene una serie de consultas y operaciones basicas que se pueden realizar en una base de datos relacional.
 El script esta diseñado para gestionar una base de datos llamada **agencia**, que almacena información sobre clientes y sus viajes. 
 A continuación, se detalla la estructura del script y las operaciones que realiza:
