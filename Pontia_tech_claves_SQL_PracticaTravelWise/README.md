@@ -26,11 +26,19 @@ A continuación, se detalla la estructura del script y las operaciones que reali
    2- Contar el número total de registros.
 
    3- Obtener los destinos únicos de los viajes.
+
    4- Filtrar viajes nacionales y ordenar por nombre y fecha.
+
    5- Buscar clientes que hayan viajado a destinos de playa.
+
    6- Consultar clientes que hayan viajado a continentes específicos (Europa y América del Norte).
+
    7- Calcular el gasto total de los clientes y el gasto solo en viajes nacionales.
+
    8- Filtrar clientes que hayan gastado más de 3000 euros en un viaje.
+
    9- Contar los viajes realizados en septiembre de 2024.
+
    10- Agrupar el número total de viajes por tipo de destino.
+
    11- Calcular el costo promedio de los viajes por tipo de viaje.
