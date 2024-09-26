@@ -20,8 +20,11 @@ A continuación, se detalla la estructura del script y las operaciones que reali
    - Se insertan algunos registros de ejemplo en la tabla `viaje_clientes` con datos de clientes y viajes.
 
 5. **🔍 Consultas SQL**: El archivo incluye diversas consultas para obtener información de la base de datos:
+
    1- Visualizar toda la información de la tabla.
+
    2- Contar el número total de registros.
+
    3- Obtener los destinos únicos de los viajes.
    4- Filtrar viajes nacionales y ordenar por nombre y fecha.
    5- Buscar clientes que hayan viajado a destinos de playa.
