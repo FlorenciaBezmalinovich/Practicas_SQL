@@ -19,6 +19,8 @@ A continuación, se detalla la estructura del script y las operaciones que reali
 4. **📥 Inserción de Datos**: 
    - Se insertan algunos registros de ejemplo en la tabla `viaje_clientes` con datos de clientes y viajes.
 
+> Considerar que todas las soluciones fueron realizadas en MySQL Workbench.
+
 5. **🔍 Consultas SQL**: El archivo incluye consultas para obtener información de la base de datos:
 
    1- Visualizar toda la información de la tabla.
