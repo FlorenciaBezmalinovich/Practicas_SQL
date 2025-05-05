@@ -226,6 +226,15 @@ Solución:
 ***
 ### 8. ¿Cuál es el total de artículos y la cantidad gastada por cada miembro antes de convertirse en miembro?
  ```SQL
+SELECT
+S.customer_id as cliente,
+COUNT(product_name) as total_articulos,
+SUM(price) as precio_total
+FROM Sales AS S
+INNER JOIN Members AS MEM on S.customer_id = MEM.customer_id
+INNER JOIN Menu AS M on S.product_id = M.product_id
+WHERE order_date < join_date
+GROUP BY S.customer_id
  ```
 Pasos:
 
@@ -238,33 +247,6 @@ Solución:
 ***
 ### 9. Si cada $ 1 gastado equivale a 10 puntos y el sushi tiene un multiplicador de puntos 2x, ¿cuántos puntos tendría cada cliente? Nota: Solo los clientes que son miembros reciben puntos al comprar artículos.
  ```SQL
- ```
-Pasos:
-
-
-Solución:
-| cliente       |       artículos |cantidad_ordenes|
-|:-------------:|:---------------:|:-------------:|
-| A             |ramen           |3             |
-| B             |curry           |2             |
-***
-### 10. En la primera semana después de que un cliente se une al programa (incluida la fecha de ingreso), gana el doble de puntos en todos los artículos, no solo en sushi. ¿Cuántos puntos tienen los clientes A y B a fines de enero?
- ```SQL
- ```
-Pasos:
-
-
-Solución:
-| cliente       |       artículos |cantidad_ordenes|
-|:-------------:|:---------------:|:-------------:|
-| A             |ramen           |3             |
-| B             |curry           |2             |
-***
-
-
---9. Si cada $ 1 gastado equivale a 10 puntos y el sushi tiene un multiplicador de puntos 2x, ¿cuántos puntos tendría cada cliente? 
---Nota: Solo los clientes que son miembros reciben puntos al comprar artículos
-
 WITH puntos_obtenidos as(
 SELECT
 s.customer_id,
@@ -281,9 +263,18 @@ SELECT customer_id,
 (puntos_obtenidos_sushi + puntos_obtenidos_otros) as total_puntos
 FROM puntos_obtenidos
 ORDER BY customer_id
+ ```
+Pasos:
 
---10. En la primera semana después de que un cliente se une al programa (incluida la fecha de ingreso), 
---gana el doble de puntos en todos los artículos, no solo en sushi. ¿Cuántos puntos tienen los clientes A y B a fines de enero?
+
+Solución:
+| cliente       |       artículos |cantidad_ordenes|
+|:-------------:|:---------------:|:-------------:|
+| A             |ramen           |3             |
+| B             |curry           |2             |
+***
+### 10. En la primera semana después de que un cliente se une al programa (incluida la fecha de ingreso), gana el doble de puntos en todos los artículos, no solo en sushi. ¿Cuántos puntos tienen los clientes A y B a fines de enero?
+ ```SQL
 SELECT 
   S.customer_id, 
   SUM(
@@ -301,8 +292,20 @@ WHERE
   MONTH(S.order_date) = 1 AND YEAR(S.order_date) = 2021
 GROUP BY 
   S.customer_id;
+ ```
+Pasos:
+
+
+Solución:
+| cliente       |       artículos |cantidad_ordenes|
+|:-------------:|:---------------:|:-------------:|
+| A             |ramen           |3             |
+| B             |curry           |2             |
+***
+
 
   --1 BONUS QUESTION Uniendo todas las cosas
+```SQL
   SELECT
   S.customer_id,
   order_date,
@@ -319,8 +322,9 @@ GROUP BY
   order by s.customer_id,
   order_date,
   price DESC
-
+```
   --2 BONUS QUESTION Clasificando todas las cosas
+```SQL
 WITH clasificacion AS (
   SELECT
     S.customer_id,
@@ -351,5 +355,5 @@ ORDER BY
   customer_id,
   order_date,
   PRICE DESC;
-
+```
 
